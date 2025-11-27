@@ -1,5 +1,3 @@
-#cloud-config-mkdocs-system
-
 groups:
   - ubuntu: [root,sys]
   - dpro42-group
@@ -14,17 +12,14 @@ users:
     groups: users, admin
     lock_passwd: false
     ssh_authorized_keys:
-      - ssh-ed25519 AAAA-etc (replace with your key here)
-
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGyaLPHHC/xfZQWWUz6L/amB/if8PP4Ag6ef57p3OYXM janitha-dilsham@janitha-dilsham-ASUS-EXPERTBOOK-B1503CVA
 runcmd:
   - touch /home/spiderman/hello.txt
   - echo "Hello! and welcome to this server! Destroy me when you are done!" >> /home/spiderman/hello.txt
   - sudo apt-get update
   - sudo apt install apache2 -q -y
-  ## 4/1/2025: replaced pip install of mkdocs with apt-get install
-  # old - sudo apt install python3-pip -y
-  # old - sudo pip install mkdocs
-  - sudo apt-get install mkdocs -q -y
+  - sudo apt install python3-pip -y
+  - sudo pip install mkdocs
   - sudo mkdir /home/spiderman/mkdocs
   - cd /home/spiderman/mkdocs
   - sudo mkdocs new mkdocs-project

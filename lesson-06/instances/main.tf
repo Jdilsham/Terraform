@@ -8,16 +8,16 @@ resource "aws_instance" "lesson_06" {
     aws_security_group.sg_http.id
   ]
   
-  user_data = file("../scripts/apache-mkdocs.yaml")
+  user_data = file("../solution/scripts/apache-mkdocs.yaml")
 
   tags = {
-    Name                  = "Lesson_06-Cloud-Init"    
+    Name = "Lesson_06-Cloud-Init"    
   }
 }
 
 resource "aws_key_pair" "deployer" {
   key_name   = "aws_key"
-  public_key = "ssh-ed25519 AAAA-etc..."
+  public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGyaLPHHC/xfZQWWUz6L/amB/if8PP4Ag6ef57p3OYXM janitha-dilsham@janitha-dilsham-ASUS-EXPERTBOOK-B1503CVA"
 }
 
 resource "aws_security_group" "sg_ssh" {
