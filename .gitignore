@@ -25,4 +25,4 @@ terraform.rc
 # Terraform lock file (optional to ignore)
 .terraform.lock.hcl
 
-/keys
+**/keys/
