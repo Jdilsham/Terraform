@@ -1,22 +1,16 @@
-# This code creates a basic container running NGINX. 
-# For this code to work, you must first install the Docker program: 
-# https://docs.docker.com/engine/install/
-# Make sure that your user account has permission to run Docker commands.
-# This code is designed for Linux (and macOS). For Windows, see the comment in the provider block.
-# Terraform Docker provider page: https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs
-
 terraform {
   required_providers {
     docker = {
-      source = "kreuzwerker/docker"
-      version = "~> 3.0.1"
+      source  = "kreuzwerker/docker"
+      version = "~> 3.0.2"
     }
   }
 }
 
-provider "docker" {}
+provider "docker" {
+  host = "unix:///home/janitha-dilsham/.docker/desktop/docker.sock"
+}
 
-# For Windows add the following indented code inside the curly braces above: host    = "npipe:////.//pipe//docker_engine"
 
 resource "docker_image" "nginx" {
   name         = "nginx:latest"

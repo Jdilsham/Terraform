@@ -1,8 +1,3 @@
-# This is non-functional code used for demonstration purposes only.
-# The purpose of this is to simply show examples of Kubernetes provider and resource code.
-# To make this code work you would first need to build an AWS-based Elastic Kubernetes Service (EKS) cluster.
-# You would then need to configure the cluster with kubectl to be able to interact with it.
-
 terraform {
   required_providers {
     aws = {
@@ -17,7 +12,6 @@ terraform {
   }
 }
 
-# This code assumes that an EKS cluster has already been created on AWS.
 data "terraform_remote_state" "eks" {
   backend = "local"
 
@@ -26,7 +20,6 @@ data "terraform_remote_state" "eks" {
   }
 }
 
-# This code retrieves the EKS cluster information
 provider "aws" {
   region = data.terraform_remote_state.eks.outputs.region
 }
