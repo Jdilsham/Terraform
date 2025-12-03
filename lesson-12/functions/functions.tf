@@ -13,4 +13,10 @@ provider "aws" {
   region = "us-east-2"
 }
 
-# Add IAM user resource here and use functions!
+resource "aws_iam_user" "function_user" {
+  name = "function_user"
+  tags = {
+    department = "OPS"
+    time_created = timestamp()
+  }
+}

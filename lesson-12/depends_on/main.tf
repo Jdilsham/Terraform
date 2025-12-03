@@ -1,7 +1,3 @@
-##################################
-## TEST FILE FOR USER CREATION ###
-##################################
-
 terraform {
   required_providers {
     aws = {
@@ -26,14 +22,8 @@ resource "aws_iam_user" "accounts_3" {
   for_each = toset(["Indigo", "Violet"])
   name = each.key
 
-  # Add a depends_on meta-argument here and set the dependent resource as the instance.
-  # This will force Terraform to wait until the instance is fully build before applying the users.
-  
-
-
+  depends_on = [ aws_instance.computer_1 ]
 }
-
-
 
 #----------------------------------#
 # More information about for_each: https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on 
